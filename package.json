@@ -1,4 +1,56 @@
 {
-  "name": "duuka-db-migrations",
-  "packageManager": "yarn@4.4.1"
+  "name": "@pakasa/duuka-db-migrations",
+  "version": "0.0.1",
+  "packageManager": "yarn@4.9.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    ".",
+    "!**/*.test.*"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "noop": "echo 0",
+    "clean": "yarn noop",
+    "test": "yarn noop",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky install",
+    "build": "yarn noop",
+    "verify": "yarn noop",
+    "prepublishOnly": "yarn build && yarn verify",
+    "dev": "yarn clean && tsc --noEmitOnError false; tsc-alias --watch",
+    "size": "bundlesize",
+    "lint": "yarn noop",
+    "lint-fix": "yarn noop",
+    "prettier": "prettier --log-level warn --write --cache .",
+    "prettier-check": "prettier --log-level warn --check --cache ."
+  },
+  "dependencies": {
+    "@evershop/postgres-query-builder": "^1.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@eslint/json": "^0.11.0",
+    "@eslint/markdown": "^6.3.0",
+    "@nx/eslint": "20.7.2",
+    "@nx/vite": "20.7.2",
+    "@types/config": "^3",
+    "@types/lodash": "^4",
+    "@vitest/coverage-v8": "^3.1.1",
+    "bundlesize": "^0.18.2",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "husky": "^8.0.0",
+    "nx": "20.7.2",
+    "prettier": "^3.5.3",
+    "vitest": "^3.1.1"
+  }
 }

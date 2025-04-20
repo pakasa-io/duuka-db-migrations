@@ -1,0 +1,17 @@
+# .npmignore
+src/
+test/
+scripts/
+*.config.*
+tsconfig.json
+.github/
+.husky/
+.eslint*
+.prettier*
+*.md
+*.log
+vitest.config.mjs
+verify-package.js
+.yarn/
+.nx/
+bundlesize.config.json
