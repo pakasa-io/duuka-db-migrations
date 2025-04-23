@@ -6,11 +6,11 @@ module.exports = exports = async (connection) => {
 
 function addDefaultShippingMethods(connection) {
   sql = `
-  insert into public.shipping_method ( uuid, name)
-  values  (DEFAULT, 'Same Day'),
-          (DEFAULT, 'Tomorrow'),
-          (DEFAULT, 'Two Days'),
-          (DEFAULT, 'As early as possible');
+    insert into public.shipping_method (uuid, name)
+    values (DEFAULT, 'Same Day'),
+           (DEFAULT, 'Tomorrow'),
+           (DEFAULT, 'Two Days'),
+           (DEFAULT, 'As early as possible') ON CONFLICT (name) DO NOTHING;
   `
 
   return execute(connection, sql);
